@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2nd Anniversary Special Gift - BRAND SHOP YOCHIKA SHIBUYA NAMIKIBASHI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+JP:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', '"Noto Serif JP"', 'serif'],
+                        sans: ['"Noto Serif JP"', 'sans-serif'],
+                    },
+                    colors: {
+                        brandBrown: {
+                            dark: '#2D1A0E',
+                            deep: '#4A321F',
+                            accent: '#5A3B1E',
+                            light: '#8C6747'
+                        },
+                        gold: {
+                            100: '#FDF7E7',
+                            200: '#F6E5B8',
+                            300: '#E2C783',
+                            400: '#D0A850',
+                            500: '#B8860B',
+                            600: '#946B08',
+                            700: '#6E4E03',
+                        },
+                        champagne: '#FDFBF7',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Noto Serif JP', 'Cormorant Garamond', serif;
+            color: #2D1A0E;
+        }
+
+        /* Metallic Gold Border */
+        .gold-border {
+            border-image: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #AA771C) 1;
+        }
+
+        /* Metallic Gold Button */
+        .btn-gold {
+            background: linear-gradient(135deg, #C5A059 0%, #FDF3C0 50%, #A37A33 100%);
+            box-shadow: 0 4px 15px rgba(163, 122, 51, 0.35);
+            transition: all 0.3s ease;
+            color: #2D1A0E;
+        }
+
+        .btn-gold:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(163, 122, 51, 0.5);
+            filter: brightness(1.05);
+        }
+
+        .btn-gold:disabled {
+            background: #cccccc;
+            box-shadow: none;
+            cursor: not-allowed;
+            opacity: 0.6;
+            color: #666666;
+        }
+
+        /* Glassmorphism Luxury Container */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            box-shadow: 0 10px 30px rgba(45, 26, 14, 0.08);
+        }
+
+        /* Modal Overlay */
+        .modal-blur {
+            background: rgba(20, 12, 6, 0.65);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Wheel Pointer Glow */
+        .pointer-shadow {
+            filter: drop-shadow(0px 4px 6px rgba(45,26,14,0.3));
+        }
+
+        /* Store Background with Overlay */
+        .bg-store-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -10;
+            overflow: hidden;
+        }
+
+        .bg-store-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bg-white-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 253, 249, 0.65);
+            backdrop-filter: blur(1px);
+        }
+
+        @keyframes pulse-subtle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        .animate-pulse-subtle {
+            animation: pulse-subtle 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between relative overflow-x-hidden">
+
+    <div class="bg-store-container">
+        <!-- Store Interior Background Image -->
+        <img src="bg.jpg" 
+             onerror="this.onerror=null; this.src='bg.png';" 
+             alt="Store Interior" 
+             class="bg-store-img">
+        <div class="bg-white-overlay"></div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container mx-auto px-4 py-8 flex-grow flex flex-col items-center justify-between max-w-5xl">
+
+        <!-- HEADER SECTION -->
+        <header class="text-center my-4 space-y-2">
+            <!-- 1. 2nd Anniversary Special Gift (Top, Dark Brown) -->
+            <div>
+                <span class="text-xl sm:text-2xl md:text-3xl font-serif font-bold tracking-[0.18em] text-brandBrown-accent block">
+                    2nd Anniversary Special Gift
+                </span>
+            </div>
+
+            <!-- 2. BRAND SHOP YOCHIKA (Middle, Brown tone) -->
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold tracking-[0.15em] text-brandBrown-dark font-serif pt-1">
+                BRAND SHOP YOCHIKA
+            </h1>
+
+            <!-- 3. SHIBUYA NAMIKIBASHI (Bottom) -->
+            <div class="inline-block border-b border-gold-400 pb-1 mt-1">
+                <p class="tracking-[0.35em] text-xs sm:text-sm text-brandBrown-deep font-semibold uppercase">SHIBUYA NAMIKIBASHI</p>
+            </div>
+            <p class="text-xs sm:text-sm text-brandBrown-deep/80 tracking-wider pt-2">日頃の感謝を込めて・ご来店記念スペシャルノベルティ</p>
+        </header>
+
+        <main class="w-full my-6 flex flex-col md:flex-row items-center justify-center gap-8 lg:gap-12">
+            
+            <!-- Wheel Display -->
+            <div class="relative flex flex-col items-center">
+                
+                <!-- Pointer/Arrow -->
+                <div class="absolute -top-4 z-20 pointer-shadow">
+                    <svg width="36" height="44" viewBox="0 0 42 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 50L2.81347 18.75L39.1865 18.75L21 50Z" fill="url(#goldGradient)"/>
+                        <circle cx="21" cy="14" r="10" fill="url(#goldGradient)"/>
+                        <defs>
+                            <linearGradient id="goldGradient" x1="0" y1="0" x2="42" y2="50" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FCF6BA"/>
+                                <stop offset="0.5" stop-color="#BF953F"/>
+                                <stop offset="1" stop-color="#AA771C"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="p-2 bg-gold-400/80 rounded-full shadow-xl">
+                    <div class="bg-white p-1 rounded-full border border-gold-300">
+                        <canvas id="rouletteCanvas" width="380" height="380" class="max-w-[300px] max-h-[300px] sm:max-w-[380px] sm:max-h-[380px] rounded-full cursor-pointer"></canvas>
+                    </div>
+                </div>
+
+                <!-- START BUTTON -->
+                <div class="mt-8">
+                    <button id="startButton" onclick="spinWheel()" class="btn-gold font-bold text-xl sm:text-2xl tracking-[0.25em] px-12 py-3.5 rounded-full uppercase border border-gold-200 animate-pulse-subtle">
+                        START
+                    </button>
+                </div>
+            </div>
+
+            <!-- Novelty Remaining List -->
+            <div class="glass-card rounded-2xl p-6 w-full max-w-sm sm:max-w-md border border-gold-300/40">
+                <div class="text-center border-b border-gold-300/50 pb-3 mb-4">
+                    <h2 class="text-lg font-serif font-semibold text-brandBrown-dark tracking-widest">NOVELTY LIST</h2>
+                    <p class="text-xs text-brandBrown-light tracking-wider">残りノベルティ数</p>
+                </div>
+
+                <div id="stockList" class="space-y-3">
+                    <!-- Dynamic rendering via JS -->
+                </div>
+
+                <div id="outOfStockMessage" class="hidden mt-4 p-3 bg-red-50/80 border border-red-200 text-red-700 text-xs text-center rounded-lg">
+                    すべてのノベルティの配布が終了いたしました。誠にありがとうございました。
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="w-full text-center py-4 border-t border-gold-300/30 text-xs text-brandBrown-deep/70 flex flex-col sm:flex-row items-center justify-between gap-2">
+            <div>
+                &copy; BRAND SHOP YOCHIKA SHIBUYA NAMIKIBASHI All Rights Reserved.
+            </div>
+            
+            <!-- Admin Reset Trigger -->
+            <div>
+                <button onclick="toggleAdminPanel()" class="text-brandBrown-light hover:text-gold-600 underline transition-colors">
+                    管理者設定（残数調整）
+                </button>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- ADMIN MANAGEMENT MODAL -->
+    <div id="adminModal" class="fixed inset-0 modal-blur z-50 flex items-center justify-center p-4 hidden">
+        <div class="glass-card bg-white/95 rounded-2xl p-6 max-w-md w-full border-2 border-gold-400 shadow-2xl">
+            <div class="flex justify-between items-center border-b border-gray-200 pb-3 mb-4">
+                <h3 class="text-lg font-bold text-brandBrown-dark">管理者用 在庫数管理</h3>
+                <button onclick="toggleAdminPanel()" class="text-gray-400 hover:text-gray-700 text-xl font-bold">&times;</button>
+            </div>
+            <p class="text-xs text-gray-500 mb-4">各ノベルティの残数を手動で変更または初期状態（各2点/計10点）にリセットできます。</p>
+            
+            <div id="adminStockInputs" class="space-y-3 mb-6">
+                <!-- JS Inserted Controls -->
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+                <button onclick="resetStockToDefault()" class="w-full py-2.5 bg-brandBrown-dark text-gold-200 font-semibold rounded-lg hover:bg-black transition-colors text-sm">
+                    初期状態（各2個）にリセット
+                </button>
+                <button onclick="saveAdminStock()" class="w-full py-2.5 btn-gold font-bold rounded-lg text-sm">
+                    残数を保存
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WINNER POPUP MODAL -->
+    <div id="winnerModal" class="fixed inset-0 modal-blur z-50 flex items-center justify-center p-4 hidden">
+        <div class="glass-card bg-white/95 rounded-2xl p-8 max-w-lg w-full text-center border-2 border-gold-400 shadow-2xl relative transform transition-all scale-100">
+            
+            <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gradient-to-r from-gold-300 via-gold-100 to-gold-400 p-1 rounded-full shadow-lg">
+                <div class="bg-brandBrown-dark text-gold-300 font-serif text-sm px-6 py-1.5 rounded-full tracking-widest uppercase">
+                    SPECIAL GIFT
+                </div>
+            </div>
+
+            <div class="mt-4 mb-2">
+                <p class="text-gold-600 font-serif tracking-widest text-sm font-semibold">CONGRATULATIONS</p>
+                <h3 class="text-2xl sm:text-3xl font-bold text-brandBrown-dark font-serif tracking-wider mt-1">
+                    ご当選おめでとうございます！
+                </h3>
+            </div>
+
+            <p class="text-xs sm:text-sm text-brandBrown-deep/80 mb-6">
+                ブランドショップよちか 渋谷並木橋店 2周年記念の<br>特別なノベルティをプレゼントいたします。
+            </p>
+
+            <!-- Prize Visual & Card -->
+            <div class="bg-gradient-to-b from-champagne to-white p-6 rounded-xl border border-gold-300/60 shadow-inner mb-6 flex flex-col items-center">
+                
+                <!-- 商品画像専用表示枠（アイコン・ダミー表示を排除） -->
+                <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-2xl bg-white border border-gold-300/80 p-3 shadow-md flex items-center justify-center mb-4 overflow-hidden relative">
+                    <img id="winnerImage" src="" alt="当選賞品" class="w-full h-full object-contain">
+                </div>
+
+                <span id="winnerBrand" class="text-xs font-serif tracking-[0.25em] text-gold-600 font-bold uppercase mb-1">BRAND</span>
+                <h4 id="winnerItemName" class="text-xl sm:text-2xl font-bold text-brandBrown-dark tracking-wide">
+                    ITEM NAME
+                </h4>
+            </div>
+
+            <button onclick="closeWinnerModal()" class="btn-gold font-bold tracking-widest px-10 py-3 rounded-full text-base sm:text-lg shadow-md w-full sm:w-auto">
+                閉じる
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Item Initial Data (Total 5 types, 10 items total)
+        const DEFAULT_ITEMS = [
+            {
+                id: 'prada',
+                brand: 'PRADA',
+                itemName: 'リップバーム',
+                name: 'PRADA リップバーム',
+                count: 2,
+                color: '#FFFFFF',
+                textColor: '#2D1A0E',
+                image: 'prada.png'
+            },
+            {
+                id: 'celine',
+                brand: 'CELINE',
+                itemName: 'ハンドクリーム',
+                name: 'CELINE ハンドクリーム',
+                count: 2,
+                color: '#FBF9F4',
+                textColor: '#2D1A0E',
+                image: 'celine.png'
+            },
+            {
+                id: 'chanel',
+                brand: 'CHANEL',
+                itemName: 'ヘアミスト',
+                name: 'CHANEL ヘアミスト',
+                count: 2,
+                color: '#FFFFFF',
+                textColor: '#2D1A0E',
+                image: 'chanel.png'
+            },
+            {
+                id: 'dior',
+                brand: 'DIOR',
+                itemName: 'ネイルクリーム',
+                name: 'DIOR ネイルクリーム',
+                count: 2,
+                color: '#FBF9F4',
+                textColor: '#2D1A0E',
+                image: 'dior.png'
+            },
+            {
+                id: 'givenchy',
+                brand: 'GIVENCHY',
+                itemName: 'ソリッドパフューム',
+                name: 'GIVENCHY ソリッドパフューム',
+                count: 2,
+                color: '#FFFFFF',
+                textColor: '#2D1A0E',
+                image: 'givency.png'
+            }
+        ];
+
+        let items = [];
+        let canvas, ctx;
+        let startAngle = 0;
+        let isSpinning = false;
+
+        // Initialize App & Load Stock from LocalStorage
+        window.addEventListener('DOMContentLoaded', () => {
+            canvas = document.getElementById('rouletteCanvas');
+            ctx = canvas.getContext('2d');
+
+            loadStock();
+            renderStockUI();
+            drawRoulette();
+        });
+
+        // Load stock from localStorage or set defaults
+        function loadStock() {
+            const saved = localStorage.getItem('yochika_2nd_novelty_stock');
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    items = DEFAULT_ITEMS.map(item => {
+                        const savedItem = parsed.find(p => p.id === item.id);
+                        return {
+                            ...item,
+                            count: savedItem ? savedItem.count : item.count
+                        };
+                    });
+                } catch (e) {
+                    items = JSON.parse(JSON.stringify(DEFAULT_ITEMS));
+                }
+            } else {
+                items = JSON.parse(JSON.stringify(DEFAULT_ITEMS));
+            }
+        }
+
+        // Save stock to localStorage
+        function saveStock() {
+            const dataToSave = items.map(item => ({ id: item.id, count: item.count }));
+            localStorage.setItem('yochika_2nd_novelty_stock', JSON.stringify(dataToSave));
+        }
+
+        // Render remaining stock list in the UI panel
+        function renderStockUI() {
+            const container = document.getElementById('stockList');
+            container.innerHTML = '';
+
+            let totalStock = 0;
+
+            items.forEach(item => {
+                totalStock += item.count;
+                const isOutOfStock = item.count === 0;
+
+                const row = document.createElement('div');
+                row.className = `flex justify-between items-center p-2.5 rounded-lg border transition-all ${
+                    isOutOfStock 
+                        ? 'bg-gray-100/60 border-gray-200 text-gray-400 opacity-60' 
+                        : 'bg-white/70 border-gold-300/40 text-brandBrown-dark'
+                }`;
+
+                row.innerHTML = `
+                    <div class="flex items-center space-x-2">
+                        <span class="w-2 h-2 rounded-full ${isOutOfStock ? 'bg-gray-300' : 'bg-gold-500'}"></span>
+                        <span class="font-medium text-sm sm:text-base">${item.name}</span>
+                    </div>
+                    <div class="flex items-center space-x-1 font-serif">
+                        <span class="text-xs text-brandBrown-light">残り</span>
+                        <span class="font-bold text-base sm:text-lg ${isOutOfStock ? 'text-gray-400' : 'text-gold-600'}">${item.count}</span>
+                        <span class="text-xs text-brandBrown-light">点</span>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+
+            const startBtn = document.getElementById('startButton');
+            const outMsg = document.getElementById('outOfStockMessage');
+
+            if (totalStock === 0) {
+                startBtn.disabled = true;
+                startBtn.classList.remove('animate-pulse-subtle');
+                outMsg.classList.remove('hidden');
+            } else {
+                startBtn.disabled = isSpinning;
+                outMsg.classList.add('hidden');
+            }
+        }
+
+        function drawRoulette() {
+            if (!ctx) return;
+            const numSlices = items.length;
+            const sliceAngle = (2 * Math.PI) / numSlices;
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = canvas.width / 2 - 4;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            items.forEach((item, index) => {
+                const angle = startAngle + index * sliceAngle;
+
+                // Draw Slice
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.arc(centerX, centerY, radius, angle, angle + sliceAngle);
+                ctx.closePath();
+
+                // Alternating Off-White Colors
+                if (index % 2 === 0) {
+                    ctx.fillStyle = '#FFFFFF';
+                } else {
+                    ctx.fillStyle = '#FAF7F0';
+                }
+                
+                // Dim if out of stock
+                if (item.count === 0) {
+                    ctx.fillStyle = '#EAEAEA';
+                }
+
+                ctx.fill();
+
+                // Minimal Fine Gold Border
+                ctx.lineWidth = 1;
+                ctx.strokeStyle = '#D4AF37';
+                ctx.stroke();
+
+                // Render 2-line text (Brand & Item Name)
+                ctx.save();
+                ctx.translate(centerX, centerY);
+                ctx.rotate(angle + sliceAngle / 2);
+                ctx.textAlign = 'right';
+
+                const isEnded = item.count === 0;
+
+                // Brand Line (Top)
+                ctx.fillStyle = isEnded ? '#A0A0A0' : '#B8860B';
+                ctx.font = 'bold 11px "Cormorant Garamond", serif';
+                ctx.fillText(item.brand, radius - 24, -5);
+
+                // Item Name Line (Bottom)
+                ctx.fillStyle = isEnded ? '#909090' : '#2D1A0E';
+                ctx.font = 'bold 12px "Noto Serif JP", serif';
+                const labelText = isEnded ? `${item.itemName}(終了)` : item.itemName;
+                ctx.fillText(labelText, radius - 24, 12);
+
+                ctx.restore();
+            });
+
+            // Outer Clean Gold Edge Rim
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = '#C59B27';
+            ctx.stroke();
+
+            // Minimal Center Cap
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 18, 0, 2 * Math.PI);
+            ctx.fillStyle = '#2D1A0E';
+            ctx.fill();
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = '#D4AF37';
+            ctx.stroke();
+
+            // Inner Gold Accent
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 6, 0, 2 * Math.PI);
+            ctx.fillStyle = '#D4AF37';
+            ctx.fill();
+        }
+
+        function playClickSound() {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(320, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.05);
+            } catch (e) {}
+        }
+
+        function spinWheel() {
+            if (isSpinning) return;
+
+            // Filter available items (count > 0)
+            const availableIndices = items
+                .map((item, index) => item.count > 0 ? index : null)
+                .filter(val => val !== null);
+
+            if (availableIndices.length === 0) {
+                alert('すべてのノベルティの配布が終了しています。');
+                return;
+            }
+
+            // Pick winning index from available items
+            const winnerIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+
+            isSpinning = true;
+            document.getElementById('startButton').disabled = true;
+
+            const sliceAngle = (2 * Math.PI) / items.length;
+
+            const targetSliceCenterAngle = winnerIndex * sliceAngle + sliceAngle / 2;
+            const pointerAngle = (3 * Math.PI) / 2; // top position (270°)
+
+            const minRotations = 5;
+            let targetStartAngle = pointerAngle - targetSliceCenterAngle;
+            
+            while (targetStartAngle < startAngle + minRotations * 2 * Math.PI) {
+                targetStartAngle += 2 * Math.PI;
+            }
+
+            const totalRotationNeeded = targetStartAngle - startAngle;
+            const spinDuration = 5000;
+            const startTime = performance.now();
+            const initialStartAngle = startAngle;
+
+            let lastSliceTick = -1;
+
+            function animateSpin(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / spinDuration, 1);
+
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                startAngle = initialStartAngle + totalRotationNeeded * easeOut;
+
+                const normalizedAngle = (startAngle % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
+                const currentSliceTick = Math.floor(normalizedAngle / sliceAngle);
+                if (currentSliceTick !== lastSliceTick) {
+                    playClickSound();
+                    lastSliceTick = currentSliceTick;
+                }
+
+                drawRoulette();
+
+                if (progress < 1) {
+                    requestAnimationFrame(animateSpin);
+                } else {
+                    isSpinning = false;
+                    onSpinEnd(winnerIndex);
+                }
+            }
+
+            requestAnimationFrame(animateSpin);
+        }
+
+        function onSpinEnd(winnerIndex) {
+            const winner = items[winnerIndex];
+
+            if (winner.count > 0) {
+                winner.count -= 1;
+                saveStock();
+                renderStockUI();
+            }
+
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 80,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#D4AF37', '#FCF6BA', '#AA771C', '#2D1A0E']
+                });
+            }
+
+            showWinnerModal(winner);
+        }
+
+        function showWinnerModal(item) {
+            document.getElementById('winnerBrand').innerText = item.brand;
+            document.getElementById('winnerItemName').innerText = item.name;
+            const imgElement = document.getElementById('winnerImage');
+            
+            // アイコンではなく、指定された画像ファイルを表示
+            imgElement.src = item.image;
+            imgElement.alt = item.name;
+
+            // givency.png と givenchy.png の表記ゆれに対応
+            imgElement.onerror = function() {
+                if (item.image === 'givency.png') {
+                    this.onerror = null;
+                    this.src = 'givenchy.png';
+                }
+            };
+
+            const modal = document.getElementById('winnerModal');
+            modal.classList.remove('hidden');
+        }
+
+        function closeWinnerModal() {
+            document.getElementById('winnerModal').classList.add('hidden');
+            drawRoulette();
+        }
+
+        // Admin Modal Controls
+        function toggleAdminPanel() {
+            const modal = document.getElementById('adminModal');
+            if (modal.classList.contains('hidden')) {
+                renderAdminInputs();
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function renderAdminInputs() {
+            const container = document.getElementById('adminStockInputs');
+            container.innerHTML = '';
+
+            items.forEach((item, index) => {
+                const row = document.createElement('div');
+                row.className = "flex justify-between items-center bg-gray-50 p-2.5 rounded-lg border border-gray-200";
+                row.innerHTML = `
+                    <label class="text-xs font-semibold text-brandBrown-dark flex-1">${item.name}</label>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="adjustAdminCount(${index}, -1)" class="w-7 h-7 rounded bg-gray-200 text-brandBrown-dark font-bold flex items-center justify-center hover:bg-gray-300">-</button>
+                        <input type="number" id="adminInput_${index}" value="${item.count}" min="0" max="99" class="w-12 text-center text-sm font-bold border border-gray-300 rounded py-1">
+                        <button onclick="adjustAdminCount(${index}, 1)" class="w-7 h-7 rounded bg-gray-200 text-brandBrown-dark font-bold flex items-center justify-center hover:bg-gray-300">+</button>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        function adjustAdminCount(index, change) {
+            const input = document.getElementById(`adminInput_${index}`);
+            let val = parseInt(input.value) || 0;
+            val = Math.max(0, val + change);
+            input.value = val;
+        }
+
+        function saveAdminStock() {
+            items.forEach((item, index) => {
+                const input = document.getElementById(`adminInput_${index}`);
+                if (input) {
+                    item.count = Math.max(0, parseInt(input.value) || 0);
+                }
+            });
+            saveStock();
+            renderStockUI();
+            drawRoulette();
+            toggleAdminPanel();
+        }
+
+        function resetStockToDefault() {
+            items = DEFAULT_ITEMS.map(item => ({ ...item, count: 2 }));
+            saveStock();
+            renderStockUI();
+            drawRoulette();
+            toggleAdminPanel();
+        }
+    </script>
+</body>
+</html>
